@@ -1,6 +1,7 @@
 '''
 Funciones auxiliares para el programa linea
 '''
+import matplotlib.pyplot as plt
 
 def calcular_y(x,m,b):
     '''
@@ -18,3 +19,12 @@ if __name__ == "__main__":
         print("Prueba exitosa")
     else:
         print("Prueba fallida")
+def grafica_linea(X:list,Y:list, m:float, b:float):
+    '''
+    '''
+    plt.plot(X,Y)
+    plt.title(f'Linea recta con pendiente={m} e interseccion en y={b}')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.grid()
+    plt.show
