@@ -58,15 +58,17 @@ def juego(simbolos:dict):
         dibuja_tablero(simbolos)
         movimientos += 1
         if movimientos >= 9:
+            print('Empate')
             en_juego = False
-            continue
+            break
         gana = checa_winner(simbolos, lista_combinaciones)
         if gana:
             print(f'Ganador: {gana}')
             break
         if movimientos >= 9:
+            print('Empate')
             en_juego = False
-            continue
+            break
         ia(simbolos)
         dibuja_tablero(simbolos)
         movimientos += 1
@@ -75,8 +77,9 @@ def juego(simbolos:dict):
             print(f'Ganador: {gana}')
             break
         if movimientos >= 9:
+            print('Empate')
             en_juego = False
-            continue
+            break
         
         
             
