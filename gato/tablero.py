@@ -57,7 +57,7 @@ def juego(simbolos:dict):
         usuario(simbolos)
         dibuja_tablero(simbolos)
         movimientos += 1
-        if movimientos >= 9:
+        if movimientos > 9:
             print('Empate')
             en_juego = False
             break
@@ -65,7 +65,7 @@ def juego(simbolos:dict):
         if gana:
             print(f'Ganador: {gana}')
             break
-        if movimientos >= 9:
+        if movimientos > 9:
             print('Empate')
             en_juego = False
             break
@@ -76,7 +76,7 @@ def juego(simbolos:dict):
         if gana:
             print(f'Ganador: {gana}')
             break
-        if movimientos >= 9:
+        if movimientos > 9:
             print('Empate')
             en_juego = False
             break
