@@ -14,21 +14,8 @@ def main():
     while corriendo:
         dsimbolos = {x:x for x in numeros}
         g = tablero.juego(dsimbolos)
-        if g is not None:
-            print(f'Ganador: {g}')
-            if g == "X":
-                X["X"]["G"] += 1
-                O["O"]["P"] += 1
-            elif g == "O":
-                X["O"]["G"] += 1
-                O["X"]["P"] += 1
-            else:
-                X["X"]["E"] += 1
-                O["O"]["E"] += 1
-        else:
-            print("Empate")
-            X["X"]["E"] += 1
-            O["O"]["E"] += 1
-                     
+        tablero.actualiza_score(score, g)
+        tablero.despliega_tablero(score)
+        
 if __name__ == '__main__':
     main()
