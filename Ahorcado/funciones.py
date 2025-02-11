@@ -25,9 +25,19 @@ def despliega_plantila(diccionario:list, nivel:int):
         for renglon in template:
             print(renglon)
             
+def obten_palabras(lista:list)->set:
+    '''Obtiene las palabras de un texto'''
+    texto = ''.join(lista[120:])
+    palabras = texto.split()
+    minusculas = [palabra.lower() for palabra in palabras]
+    set_palabras = set(minusculas)
+    return list(set_palabras)
+            
+            
 if __name__ == '__main__':
     plantillas = carga_pantillas('plantilla')
     despliega_plantila(plantillas, 5)
     lista_oraciones = carga_archivo_texto('./datos/pg15532.txt')
-    print(lista_oraciones[120:150])
-    texto = ' '.join(lista_oraciones[120:150])
+    lista_palabras = obten_palabras(lista_oraciones)
+    print(lista_palabras[:50])
+    
