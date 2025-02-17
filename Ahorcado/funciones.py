@@ -44,7 +44,7 @@ def obten_palabras(lista:list)->set:
                     for palabra in set_palabras}
     return list(set_palabras)
     
-def adivina_letra(abc:dict, palabra:str, letras_adivinadas:set, turnos:int):
+def adivina_letra(abc:dict, palabra:str, letras_adivinadas:set, turnos:int)->int:
     '''
     Adivina una letra de la palabra
     '''
@@ -69,6 +69,7 @@ def adivina_letra(abc:dict, palabra:str, letras_adivinadas:set, turnos:int):
                 letras_adivinadas.add(letra)
             else:
                 turnos -= 1
+    return turnos
             
 if __name__ == '__main__':
     plantillas = carga_pantillas('plantilla')
@@ -81,6 +82,8 @@ if __name__ == '__main__':
     abcdario = {letra:letra for letra in string.ascii_lowercase}
     adivinadas = set()
     t = 5 #oporunidades 
-    adivina_letra(abcdario, p, adivinadas, t)
-    adivina_letra(abcdario, p, adivinadas, t)
+    t = adivina_letra(abcdario, p, adivinadas, t)
+    print(t)
+    t = adivina_letra(abcdario, p, adivinadas, t)
+    print(t)
     
