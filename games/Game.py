@@ -13,7 +13,7 @@ class Game:
             'NFL': [x for x in range(0,61)],
             'MLB': [x for x in range(0,21)],
             'MLX': [x for x in range(0,11)],
-            'FIFA': [x for x in range(0,11)],
+            'FIFA': [x for x in range(0,11)]
         }
     def __init__(self, A:Team, B:Team):
         ''' Constructor de la clase Game '''
@@ -38,12 +38,12 @@ class Game:
     
     def __repr__(self):
         ''' Método para representar la clase como string '''
-        return f"Game(A = {repr(self.A)}, B = {repr(self.B)}, score = {self.score})"
-    
+        return f"Game(A={repr(self.A)}, B={repr(self.B)}, score={self.score})"
+
     def to_json(self)->dict:
         ''' Método para representar la clase como diccionario '''
         return {"A":self.A.to_json(), "B":self.B.to_json(), "score":self.score}
-
+    
 if __name__ == "__main__":
     dt = ['Jordan', 'Johnson', 'Pipen','Bird', 'Kobe']
     cz = ['Bjovik','Czack','Pfeizer','Leonard', 'Kempfe']
@@ -55,12 +55,11 @@ if __name__ == "__main__":
     game = Game(team_a, team_b)
     print(game)
     game.play()
-    print("-----------")
-    print(repr(game))
     print(game)
+    print("----------------")
+    print(repr(game))
     print(game.to_json())
     filename_json = "game.json"
-    with open(filename_json, "w",encoding= 'utf8') as f:
+    with open(filename_json, "w", encoding='utf8') as f:
         json.dump(game.to_json(), f, ensure_ascii=False, indent=4)
-    print(f"Archivo {filename_json} guardado con exito")
-    
+    print(f"Archivo {filename_json} guardado con éxito!")
