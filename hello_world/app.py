@@ -1,34 +1,30 @@
-'''Hola Mundo de flask'''
+''' Hola mundo de Flask'''
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/')#Home page o raiz o indice
+@app.route('/') #Home page o raíz o índice
 def index():
-    return '''
-    <html>
-        <head>
-            <title>Hola Mundo</title>
-        </head>
-        <body>
-            <h1>Hola Mundo</h1>
-            <p>Ir a la pagina de <a href="/about">Acerca de</a></p>
-        </body>
-    </html>
-     '''
+    '''Función que se ejecuta cuando se accede a la raíz de la página'''
+    return '''<html>
+                    <head>
+                        <title>Hello world</title>
+                    </head>
+                    <body><h1>Hola mundo</h1>
+                        <p>Ir a la página de <a href="/about">Acerca de</a></p>
+                    </body>
+            </html>'''
 
-@app.route('/about')#Acerca de
+@app.route('/about') #Acerca de
 def about():
-    return '''
-    <html>
-        <head>
-            <title>Acerca de</title>
-        </head>
-        <body>
-            <h1>Acerca de</h1>
-            <p>Ir a la pagina de <a href="/">Inicio</a></p>
-        </body>
-    </html>
-    return '''
-    
+    '''Función que se ejecuta cuando se accede a la página de acerca de'''
+    return '''<html>
+                    <head>
+                        <title>Acerca de</title>
+                    </head>
+                    <body><h1>Acerca de</h1>
+                        <p>Ir a la página de <a href="/">Inicio</a></p>
+                    </body>
+            </html>'''
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True) #Activar el modo de depuración
