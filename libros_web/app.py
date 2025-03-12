@@ -15,7 +15,7 @@ def inicio():
     ''' Página de inicio de la aplicación '''
     return render_template('index.html')
 
-@app.route('/titulo', methods =['GET','POST'])
+@app.route('/titulos', methods =['GET','POST'])
 def busqueda_titulo():
     ''' Página de búsqueda por título '''
     resultado = []
@@ -44,12 +44,17 @@ def plantilla_letra():
 def busqueda_letra(letra:str):
     ''' Pagina de busqueda por letra'''
     resultado = fn.libros_empiezan_con(lista_libros, letra)
-    return render_template('letra.html', lista_libros=resultado)
+    return render_template('por_letra.html', lista_libros=resultado)
     
-@app.route('/autor', methods =['GET'])
-def busqueda_autor():
-    ''' Página de búsqueda por autor '''
-    return render_template('autor.html', lista_libros = [])
-        
+
+@app.route('/titulo', methods =['GET','POST'])
+def title():
+    ''' Página de búsqueda por título '''
+    resultado = []
+    if request.method == 'POST':
+        titulo = request.form.get('searchinput', '')
+        resultado = fn.busca_en_diccionario(diccionario_titulos, titulo)
+    return render_template('titulos.html', lista_libros=resultado)              
+                
 if __name__ == '__main__':
     app.run(debug=True)
