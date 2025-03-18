@@ -46,7 +46,6 @@ def busqueda_letra(letra:str):
     resultado = fn.libros_empiezan_con(lista_libros, letra)
     return render_template('por_letra.html', lista_libros=resultado)
     
-
 @app.route('/titulo', methods =['GET','POST'])
 def title():
     ''' Página de búsqueda por título '''
