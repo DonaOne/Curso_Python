@@ -178,6 +178,11 @@ class SistemaCine:
                 self.usuarios[user.username] = user
                 return True
             
+    def buscar_peliculas_por_titulo(self, titulo_parcial):
+        return [pelicula for pelicula in self.peliculas.values() if titulo_parcial.lower() in pelicula.titulo_pelicula.lower()]        
+            
+    def buscar_actores_por_nombre(self, nombre_parcial):
+        return [actor for actor in self.actores.values() if nombre_parcial.lower() in actor.nombre.lower()]        
 
 if __name__ == '__main__':
     sistema = SistemaCine()
@@ -210,9 +215,17 @@ if __name__ == '__main__':
     exito = sistema.login('IanRM','12345')
     print(exito)
     if exito:
-        peli = sistema.agregar_pelicula('Blade', '1998-08-21', 'https://upload.wikimedia.org/wikipedia/en/5/55/Blade_poster.jpg')
-        sistema.agregar_actor('Wesley Snipes', '1962-07-31', 'Orlando, Florida, USA', 'https://upload.wikimedia.org/wikipedia/commons/4/46/Wesleysnipes_cropped_2009.jpg')
-        archivo_actores = 'datos/movies_db - actores.csv'
-        sistema.guardar_csv(archivo_actores, sistema.actores)
-        print(f"Archivo {archivo_actores} guardado")
+        #peli = sistema.agregar_pelicula('Blade', '1998-08-21', 'https://upload.wikimedia.org/wikipedia/en/5/55/Blade_poster.jpg')
+        #sistema.agregar_actor('Wesley Snipes', '1962-07-31', 'Orlando, Florida, USA', 'https://upload.wikimedia.org/wikipedia/commons/4/46/Wesleysnipes_cropped_2009.jpg')
+        #archivo_actores = 'datos/movies_db - actores.csv'
+        #sistema.guardar_csv(archivo_actores, sistema.actores)
+        #print(f"Archivo {archivo_actores} guardado")
+        pelis = sistema.buscar_peliculas_por_titulo('Avengers')
+        for peli in pelis:
+            print(peli)
+        print("---------------------")
+        actores = sistema.buscar_actores_por_nombre('robe')
+        for a in actores:
+            print(a)
+        print("---------------------")    
     print("Listo!")
